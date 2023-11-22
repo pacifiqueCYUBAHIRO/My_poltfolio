@@ -17,7 +17,7 @@
   display: flex;
 }
 
-.nav-links a {
+ li {
   text-decoration: none;
   color: white;
   font-size: 17px;

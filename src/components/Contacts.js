@@ -25,6 +25,7 @@ function Contacts() {
               <br></br><br></br>
             </form>
           </div>
+          
         </div>
 
       </div>

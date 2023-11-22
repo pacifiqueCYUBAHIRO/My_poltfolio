@@ -1,26 +1,100 @@
-import React from 'react'
-import logo from './images/logo.png';
-import "./about.css"
+import React, { useEffect } from 'react';
+import logo from './images/mypic.png';
+import "./about.css";
 
 function About() {
-  return (
-    <div>
-      <div className="about-container">
-        <h3 className='about'>About Me</h3>
-        <div className="about1">
-        <div className="pic">
-            <img src={logo} width="500px" alt="pic"/>
-        </div>
-        <div className="about-desc">
-            <p>Solution-driven web developer adept at contributing to highly collaborative work environment and finding solutions.Proven experience developing consumer-focused websites using HTML, CSS, PHP and JavaScript. Good knowledge of the best practices for web design, user experience, and speed.</p>
-            
-        </div>
-        </div>
-        </div>
+    // Move opentab function outside of the useEffect
+    const opentab = (event, tabname) => {
+        const tabLinks = document.getElementsByClassName("tab-links");
+        const tabContents = document.getElementsByClassName("tab-contents");
 
+        for (const tablink of tabLinks) {
+            tablink.classList.remove("active-link");
+        }
+        for (const tabcontent of tabContents) {
+            tabcontent.classList.remove("active-tab");
+        }
 
-    </div>
-  )
+        event.currentTarget.classList.add("active-link");
+        document.getElementById(tabname).classList.add("active-tab");
+    };
+
+    useEffect(() => {
+        const tabLinks = document.getElementsByClassName("tab-links");
+        
+        const tabContents = document.getElementsByClassName("tab-contents");
+
+        const opentab = (event, tabname) => {
+            for (const tablink of tabLinks) {
+                tablink.classList.remove("active-link");
+            }
+            for (const tabcontent of tabContents) {
+                tabcontent.classList.remove("active-tab");
+            }
+
+            event.currentTarget.classList.add("active-link");
+            document.getElementById(tabname).classList.add("active-tab");
+        };
+
+        for (const tabLink of tabLinks) {
+            tabLink.addEventListener("click", (event) => {
+                const tabName = tabLink.getAttribute("data-tab");
+                opentab(event, tabName);
+            });
+        }
+
+        return () => {
+            for (const tabLink of tabLinks) {
+                tabLink.removeEventListener("click", (event) => {
+                    const tabName = tabLink.getAttribute("data-tab");
+                    opentab(event, tabName);
+                });
+            }
+        };
+    
+    }, []);
+
+    return (
+        <div>
+            <div className="about-container">
+                <h3 className='about'>About Me</h3>
+                <div className="about1">
+                    <div className="pic">
+                        <img src={logo} alt="pic" />
+                    </div>
+                    <div className="about-col-2">
+                        <p>Solution-driven web developer adept at contributing to a highly collaborative work environment and finding solutions.<br /> Proven experience developing consumer-focused websites using HTML, CSS, PHP, and JavaScript. Good knowledge of the best practices for web design, user experience, and speed.</p>
+                        <div className="tab-titles">
+                            <p className="tab-links active-link" onClick={(e) => opentab(e, 'skills')}>Skills</p>
+                            <p className="tab-links" onClick={(e) => opentab(e, 'experience')}>Experience</p>
+                            <p className="tab-links" onClick={(e) => opentab(e, 'education')}>Education</p>
+                        </div>
+                        <div className="tab-contents active-tab" id="skills">
+                            <ul>
+                                <li key="skill-1"><span>Html&nbsp;&nbsp;</span>Designing Web/App Interfaces</li>
+                                <li key="skill-2"><span>Css&nbsp;&nbsp;</span>Web page Styling</li>
+                                {/* ... other list items ... */}
+                            </ul>
+                        </div>
+                        <div className="tab-contents" id="experience">
+                            <ul>
+                                <li key="exp-1"><span></span>Designing Web/App Interfaces</li>
+                                <li key="exp-2"><span>Web Development</span>Web Development</li>
+                                {/* ... other list items ... */}
+                            </ul>
+                        </div>
+                        <div className="tab-contents" id="education">
+                            <ul>
+                                <li key="edu-1"><span>ATLP Certificate</span>Designing Web/App Interfaces</li>
+                                <li key="edu-2"><span>Bachelor's Degree</span>Web Development</li>
+                                {/* ... other list items ... */}
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    );
 }
 
-export default About
+export default About;

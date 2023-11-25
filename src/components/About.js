@@ -3,59 +3,29 @@ import logo from './images/mypic.png';
 import "./about.css";
 
 function About() {
-    // Move opentab function outside of the useEffect
     const opentab = (event, tabname) => {
         const tabLinks = document.getElementsByClassName("tab-links");
         const tabContents = document.getElementsByClassName("tab-contents");
-
+    
         for (const tablink of tabLinks) {
             tablink.classList.remove("active-link");
         }
         for (const tabcontent of tabContents) {
             tabcontent.classList.remove("active-tab");
         }
-
-        event.currentTarget.classList.add("active-link");
-        document.getElementById(tabname).classList.add("active-tab");
-    };
-
-    useEffect(() => {
-        const tabLinks = document.getElementsByClassName("tab-links");
-        
-        const tabContents = document.getElementsByClassName("tab-contents");
-
-        const opentab = (event, tabname) => {
-            for (const tablink of tabLinks) {
-                tablink.classList.remove("active-link");
-            }
-            for (const tabcontent of tabContents) {
-                tabcontent.classList.remove("active-tab");
-            }
-
-            event.currentTarget.classList.add("active-link");
-            document.getElementById(tabname).classList.add("active-tab");
-        };
-
-        for (const tabLink of tabLinks) {
-            tabLink.addEventListener("click", (event) => {
-                const tabName = tabLink.getAttribute("data-tab");
-                opentab(event, tabName);
-            });
-        }
-
-        return () => {
-            for (const tabLink of tabLinks) {
-                tabLink.removeEventListener("click", (event) => {
-                    const tabName = tabLink.getAttribute("data-tab");
-                    opentab(event, tabName);
-                });
-            }
-        };
     
-    }, []);
+        const targetElement = document.getElementById(tabname);
+    
+        if (targetElement) {
+            event.currentTarget.classList.add("active-link");
+            targetElement.classList.add("active-tab");
+        } else {
+            console.error(`Element with ID ${tabname} not found.`);
+        }
+    };
+    
 
-    return (
-        <div>
+    return (        <div>
             <div className="about-container">
                 <h3 className='about'>About Me</h3>
                 <div className="about1">

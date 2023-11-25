@@ -3,7 +3,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faBars } from '@fortawesome/free-solid-svg-icons';
 import '@fortawesome/fontawesome-free/css/all.css';
 import { Link, animateScroll as scroll, scroller } from 'react-scroll';
-import './NavBar.css';
+import './Navbar.css';
 import logo from './images/logo.png';
 
 const Navbar = () => {

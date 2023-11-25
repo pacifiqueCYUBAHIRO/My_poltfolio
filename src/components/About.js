@@ -41,7 +41,7 @@ function About() {
                         </div>
                         <div className="tab-contents active-tab" id="skills">
                             <ul>
-                                <li key="skill-1"><span>Html&nbsp;&nbsp;</span>Designing Web/App Interfaces</li>
+                                <li key="skill-1"><span>Html&nbsp; &nbsp;</span>Designing Web/App Interfaces</li>
                                 <li key="skill-2"><span>Css&nbsp;&nbsp;</span>Web page Styling</li>
                                 {/* ... other list items ... */}
                             </ul>

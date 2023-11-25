@@ -49,6 +49,12 @@
 .tab-contents {
     display: none;
 }
+.tab-contents span{
+    color: blueviolet;
+}
+.tab-contents li{
+    color: #000;
+}
 
 .active-tab {
     display: block;

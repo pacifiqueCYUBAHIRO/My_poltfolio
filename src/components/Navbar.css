@@ -28,6 +28,10 @@
   font-size: 17px;
   margin-right: 20px;
 }
+.nav-links .active {
+  font-weight: bold;
+  color: rgb(97, 106, 187);
+}
 
 .burger-menu {
   display: none;

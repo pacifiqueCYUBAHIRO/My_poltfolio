@@ -1,3 +1,6 @@
+Deployed page: https://pacifiquecyubahiro.github.io/My_poltfolio/
+
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).

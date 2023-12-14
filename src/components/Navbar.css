@@ -40,6 +40,23 @@
   width: 50px;
 }
 
+.modal-content {
+  position: relative;
+  max-width: 400px; /* Adjust the width as needed */
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.close-button {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  background-color: #fff;
+  border: 1px solid #ccc;
+  padding: 5px 10px;
+  cursor: pointer;
+}
+
 
 
 .navbar button {

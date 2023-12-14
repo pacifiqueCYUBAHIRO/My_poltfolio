@@ -6,6 +6,7 @@ import Blogs from './components/Blogs';
 import Poltfolio from './components/Poltfolio';
 import Contacts from './components/Contacts';
 import Footer from "./components/Footer";
+// import SignInForm from "./components/SignInForm";
 function App() {
   return (
     <div className="App">

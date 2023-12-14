@@ -3,12 +3,19 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faBars } from '@fortawesome/free-solid-svg-icons';
 import '@fortawesome/fontawesome-free/css/all.css';
 import { Link as ScrollLink } from 'react-scroll';
+import Modal from 'react-modal';
 import './Navbar.css';
 import logo from './images/logo.png';
+import SignInForm from './SignInForm';
+// import SignUpForm from './SignUpForm';
+
+Modal.setAppElement('#root');
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [activeLink, setActiveLink] = useState(null);
+  const [isSignInModalOpen, setIsSignInModalOpen] = useState(false);
+  // const [isSignUpModalOpen, setIsSignUpModalOpen] = useState(false);
 
   const toggleNav = () => {
     setIsOpen(!isOpen);
@@ -16,7 +23,19 @@ const Navbar = () => {
 
   const handleLinkClick = (link) => {
     setActiveLink(link);
-    setIsOpen(false); // Close the navbar after clicking a link
+    setIsOpen(false);
+  };
+
+  const openSignInModal = () => {
+    setIsSignInModalOpen(true);
+    // setIsSignUpModalOpen(false);
+  };
+
+
+
+  const closeModals = () => {
+    setIsSignInModalOpen(false);
+    // setIsSignUpModalOpen(false);
   };
 
   return (
@@ -25,7 +44,6 @@ const Navbar = () => {
         <img src={logo} alt="" />
       </div>
       <div className={`nav-links ${isOpen ? 'open' : ''}`}>
-
         <li>
           <ScrollLink
             to="home"
@@ -92,13 +110,27 @@ const Navbar = () => {
           </ScrollLink>
         </li>
 
-        
-        <button>Sign In</button>
+        <button onClick={openSignInModal}>Sign In</button>
+        {/* <button onClick={openSignUpModal}>Sign Up</button> */}
       </div>
 
       <div className="burger-menu" onClick={toggleNav}>
         <FontAwesomeIcon icon={faBars} />
       </div>
+
+      <Modal
+        isOpen={isSignInModalOpen}
+        onRequestClose={closeModals}
+        contentLabel="Sign In Modal"
+        className="modal-content"
+      >
+        <button className="close-button" onClick={closeModals}>
+          Close
+        </button>
+        <SignInForm />
+      </Modal>
+
+     
     </nav>
   );
 };

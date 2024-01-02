@@ -41,7 +41,7 @@ function About() {
                         </div>
                         <div className="tab-contents active-tab" id="skills">
                             <ul>
-                                <li key="skill-1"><span>Html&nbsp; &nbsp;</span>Designing Web/App Interfaces</li>
+                                <li key="skill-1"><span>Html&nbsp; &nbsp;</span>Designing Web/ App Interfaces</li>
                                 <li key="skill-2"><span>Css&nbsp;&nbsp;</span>Web page Styling</li>
                                 {/* ... other list items ... */}
                             </ul>
@@ -49,14 +49,14 @@ function About() {
                         <div className="tab-contents" id="experience">
                             <ul>
                                 <li key="exp-1"><span></span>Designing Web/App Interfaces</li>
-                                <li key="exp-2"><span>Web Development</span>Web Development</li>
+                                <li key="exp-2"><span>Web Development</span>Software Development</li>
                                 {/* ... other list items ... */}
                             </ul>
                         </div>
                         <div className="tab-contents" id="education">
                             <ul>
-                                <li key="edu-1"><span>ATLP Certificate</span>Designing Web/App Interfaces</li>
-                                <li key="edu-2"><span>Bachelor's Degree</span>Web Development</li>
+                                <li key="edu-1"><span>ATLP Certificate</span> A Full stack</li>
+                                <li key="edu-2"><span>Bachelor's Degree In </span> Computer Science</li>
                                 {/* ... other list items ... */}
                             </ul>
                         </div>
